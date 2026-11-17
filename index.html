@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101116">
+<title>InstaGrow 10K</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{color-scheme:dark;--bg:#101116;--panel:#1a1c24;--muted:#a7a9b5;--line:#30323d;--lime:#c8ff57;--purple:#9b7cff}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#252039 0,#101116 42%);color:#f6f6fa;font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:720px;margin:auto;padding:calc(18px + env(safe-area-inset-top)) 16px calc(32px + env(safe-area-inset-bottom))}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}.brand{display:flex;gap:11px;align-items:center}.logo{width:43px;height:43px;border-radius:14px;background:linear-gradient(135deg,#a48aff,#5d42c8);display:grid;place-items:center;font-size:22px}
+h1{font-size:19px;margin:0}small,.muted{color:var(--muted)}.pill{font-size:11px;color:var(--lime);border:1px solid #617a35;padding:5px 9px;border-radius:20px}
+.card{background:rgba(26,28,36,.94);border:1px solid var(--line);border-radius:20px;padding:16px;margin:13px 0;box-shadow:0 10px 28px #0003}
+.hero{background:linear-gradient(120deg,#29233e,#1b1d26 65%)}.eyebrow{color:var(--lime);font-size:11px;font-weight:800;letter-spacing:1.4px}.big{font-size:32px;font-weight:850;letter-spacing:-1px;margin:8px 0}.row{display:flex;gap:12px;align-items:center;justify-content:space-between}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:#11131a;border-radius:14px;padding:12px}.stat b{font-size:22px;display:block;margin-top:5px}.progress{height:9px;background:#343541;border-radius:10px;overflow:hidden;margin:12px 0 5px}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--lime));width:3.5%}
+h2{font-size:17px;margin:2px 0 12px}label{display:block;color:var(--muted);font-size:12px;margin:12px 0 6px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;background:#11131a;color:#fff;font:inherit}textarea{min-height:90px;resize:vertical}
+button{border:0;border-radius:12px;padding:12px 14px;font-weight:750;font-size:14px;background:var(--lime);color:#14160f;cursor:pointer}button.secondary{background:#2b2d39;color:#fff;border:1px solid #414351}button:disabled{opacity:.45}
+.actions{display:flex;gap:8px;flex-wrap:wrap}.actions button{flex:1}.tag{display:inline-block;background:#282638;color:#d6cbff;border-radius:20px;padding:6px 9px;font-size:12px;margin:3px}
+.item{padding:12px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.item strong{display:block}.check{display:flex;align-items:center;gap:10px}.check input{width:auto;accent-color:var(--lime)}
+nav{display:flex;gap:7px;overflow:auto;margin:14px 0}nav button{white-space:nowrap;background:#242630;color:#ddd}nav button.active{background:var(--lime);color:#14160f}
+.notice{font-size:12px;color:var(--muted);line-height:1.5}.output{white-space:pre-wrap;line-height:1.5;background:#11131a;border:1px solid var(--line);padding:13px;border-radius:13px;margin-top:12px}
+footer{text-align:center;color:#777987;font-size:11px;margin-top:24px}
+</style>
+</head>
+<body><main>
+<header><div class="brand"><div class="logo">🏍️</div><div><h1>InstaGrow 10K</h1><small>@z1k.sugomi · Naked Edition</small></div></div><span class="pill">V2.0 · PROTOTYP</span></header>
+<section class="card hero">
+<div class="eyebrow">DEIN WACHSTUMSZIEL</div><div class="big"><span id="currentBig">350</span> <span class="muted" style="font-size:18px">/ 10.000</span></div>
+<div class="progress"><span id="bar"></span></div>
+<div class="row"><small id="remaining">Noch 9.650 bis zum Ziel</small><small id="percent">3,5 %</small></div>
+<div class="stats" style="margin-top:15px">
+<div class="stat"><small>Aktuelle Follower</small><b id="currentSmall">350</b></div>
+<div class="stat"><small>Wöchentlich geplant</small><b>3 Posts</b></div>
+</div>
+</section>
+<nav><button class="active" data-tab="home">Übersicht</button><button data-tab="create">Beitrag erstellen</button><button data-tab="plan">Wochenplan</button><button data-tab="stats">Tracking</button></nav>
+<section id="home" class="tab">
+<div class="card"><h2>Dein nächster Schritt</h2><p style="margin:0 0 12px">Erstelle einen Beitrag, der Naked-Bike-Fans zum Mitreden bringt. Starte mit einer Frage oder einem klaren Standpunkt.</p><button onclick="showTab('create')">Beitrag vorbereiten →</button></div>
+<div class="card"><h2>Deine Wachstumsroutine</h2>
+<div class="item"><strong>1. Veröffentlichen</strong><small>3 hochwertige Beiträge pro Woche – lieber konstant als beliebig.</small></div>
+<div class="item"><strong>2. Community pflegen</strong><small>Antworte persönlich auf Kommentare und beteilige dich sinnvoll an Gesprächen in der Motorrad-Community.</small></div>
+<div class="item"><strong>3. Lernen</strong><small>Prüfe nach 7 Tagen Reichweite, Profilaufrufe, Speicherungen und neue Follower.</small></div>
+</div>
+<p class="notice">Dieses Startpaket ist ein lokaler Prototyp. Es führt keine Instagram-Aktionen aus und verspricht keine Follower. Deine Eingaben werden nur in diesem Browser auf diesem Gerät gespeichert.</p>
+</section>
+<section id="create" class="tab" hidden>
+<div class="card"><h2>Caption-Generator</h2><label for="topic">Thema oder Motorrad</label><input id="topic" placeholder="z. B. Feierabendrunde, MT-07, Kurvenstraße">
+<label for="format">Format</label><select id="format"><option>Foto-Post</option><option>Karussell</option><option>Story</option><option>Reel-Beschreibung</option></select>
+<label for="voice">Stil</label><select id="voice"><option>Modern und direkt</option><option>Locker und humorvoll</option><option>Emotional und persönlich</option><option>Technisch und informativ</option></select>
+<label class="check"><input id="withTags" type="checkbox" checked> Hashtags hinzufügen</label>
+<button style="width:100%;margin-top:12px" onclick="generate()">Text vorbereiten</button>
+<div id="generated" class="output" hidden></div><div class="actions" style="margin-top:10px"><button class="secondary" onclick="copyOutput()">Text kopieren</button><button class="secondary" onclick="approve()">Als freigegeben markieren</button></div>
+<p class="notice" id="approval">Noch nicht freigegeben. Vor dem Posten bitte Inhalt und Bild prüfen.</p>
+</div>
+<div class="card"><h2>Bildideen für Naked Bikes</h2><div class="item"><strong>Golden Hour</strong><small>Bike im warmen Abendlicht, seitliche Perspektive, ruhiger Hintergrund.</small></div><div class="item"><strong>Details erzählen</strong><small>Close-up von Tank, Scheinwerfer, Lenker oder Auspuff – mit einer Frage an die Community.</small></div><div class="item"><strong>Ride-out</strong><small>Bike an einem legalen, sicheren Haltepunkt; Landschaft und Motorrad gemeinsam zeigen.</small></div></div>
+</section>
+<section id="plan" class="tab" hidden>
+<div class="card"><h2>Dein 3-Post-Wochenplan</h2><p class="notice">Wähle deine Veröffentlichungstage. Hake die Vorbereitung ab, sobald sie erledigt ist.</p>
+<div class="item"><label class="check"><input type="checkbox" data-task="a"> <span><strong>Montag · Community-Frage</strong><small>„Was macht für dich das perfekte Naked Bike aus?“</small></span></label></div>
+<div class="item"><label class="check"><input type="checkbox" data-task="b"> <span><strong>Mittwoch · Bike-Detail</strong><small>Ein Foto mit kurzem persönlichen Text oder technischem Detail.</small></span></label></div>
+<div class="item"><label class="check"><input type="checkbox" data-task="c"> <span><strong>Samstag · Ride-out</strong><small>Ein Wochenendmoment, eine Tour oder ein Rückblick.</small></span></label></div>
+<div class="row" style="margin-top:12px"><small id="tasksDone">0 von 3 vorbereitet</small><button class="secondary" onclick="resetTasks()">Woche zurücksetzen</button></div>
+</div>
+</section>
+<section id="stats" class="tab" hidden>
+<div class="card"><h2>Follower-Stand aktualisieren</h2><label for="followers">Aktuelle Followerzahl</label><input id="followers" type="number" min="0" max="100000000" value="350"><button style="width:100%;margin-top:10px" onclick="saveFollowers()">Stand speichern</button><p class="notice">Trage die Zahl manuell aus Instagram ein. Der Prototyp liest keine Kontodaten aus.</p></div>
+<div class="card"><h2>Wöchentliche Auswertung</h2><label for="reach">Erreichte Konten</label><input id="reach" type="number" min="0" placeholder="z. B. 1200"><label for="visits">Profilaufrufe</label><input id="visits" type="number" min="0" placeholder="z. B. 85"><label for="newFollowers">Neue Follower diese Woche</label><input id="newFollowers" type="number" min="0" placeholder="z. B. 12"><button style="width:100%;margin-top:10px" onclick="saveMetrics()">Auswertung lokal speichern</button><p class="notice" id="metricsSaved">Noch keine Wochenwerte eingetragen.</p></div>
+</section>
+<footer>InstaGrow 10K · unabhängiger Prototyp · nicht mit Instagram/Meta verbunden</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+let data={followers:350,metrics:null,tasks:{},approved:false,output:""};
+try{data={...data,...JSON.parse(localStorage.getItem("igrow-v2")||"{}")}}catch(e){}
+function persist(){localStorage.setItem("igrow-v2",JSON.stringify(data))}
+function update(){let n=Number(data.followers)||0,p=Math.min(100,n/10000*100);$("currentBig").textContent=n.toLocaleString("de-DE");$("currentSmall").textContent=n.toLocaleString("de-DE");$("bar").style.width=p+"%";$("remaining").textContent="Noch "+Math.max(0,10000-n).toLocaleString("de-DE")+" bis zum Ziel";$("percent").textContent=p.toFixed(1).replace(".",",")+" %";$("followers").value=n;document.querySelectorAll("[data-task]").forEach(x=>x.checked=!!data.tasks[x.dataset.task]);let done=Object.values(data.tasks).filter(Boolean).length;$("tasksDone").textContent=done+" von 3 vorbereitet";if(data.metrics)$("metricsSaved").textContent="Gespeichert: Reichweite "+data.metrics.reach+", Profilaufrufe "+data.metrics.visits+", neue Follower "+data.metrics.newFollowers+"."}
+function showTab(t){document.querySelectorAll(".tab").forEach(x=>x.hidden=x.id!==t);document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active",x.dataset.tab===t))}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+document.querySelectorAll("[data-task]").forEach(x=>x.addEventListener("change",()=>{data.tasks[x.dataset.task]=x.checked;persist();update()}));
+function generate(){let topic=$("topic").value.trim()||"dein Naked Bike";let style=$("voice").value;let opener=style.includes("humorvoll")?"Kurze Frage an die Bike-Community 😎":style.includes("persönlich")?"Manchmal braucht es nicht mehr als zwei Räder und einen freien Kopf.":style.includes("Technisch")?"Was macht ein Naked Bike für dich aus?":"Weniger Verkleidung. Mehr Charakter. 🏍️";let body=opener+"\n\nHeute geht's um: "+topic+".\n\nWas ist euch bei einer guten Runde am wichtigsten – Sound, Handling oder einfach das Gefühl auf der Straße?\n\nSchreib's in die Kommentare und erzähl, welches Bike du fährst. 👇";let tags=$("withTags").checked?"\n\n#nakedbike #bikelife #motorcycle #motorradliebe #bikersofinstagram #streetfighter #motorcyclelife #rideout #zweirad #motorrad":"";data.output=body+tags;data.approved=false;persist();$("generated").hidden=false;$("generated").textContent=data.output;$("approval").textContent="Noch nicht freigegeben. Vor dem Posten bitte Inhalt und Bild prüfen."}
+async function copyOutput(){if(!data.output){$("approval").textContent="Erstelle zuerst einen Beitrag.";return}try{await navigator.clipboard.writeText(data.output);$("approval").textContent="Text kopiert. Bitte vor Veröffentlichung noch prüfen."}catch(e){$("approval").textContent="Kopieren nicht möglich – Text bitte markieren und kopieren."}}
+function approve(){if(!data.output){$("approval").textContent="Erstelle zuerst einen Beitrag.";return}data.approved=true;persist();$("approval").textContent="Als freigegeben markiert. Die Veröffentlichung erfolgt weiterhin manuell in Instagram."}
+function saveFollowers(){let n=Math.max(0,Math.floor(Number($("followers").value)||0));data.followers=n;persist();update()}
+function saveMetrics(){data.metrics={reach:Number($("reach").value)||0,visits:Number($("visits").value)||0,newFollowers:Number($("newFollowers").value)||0};persist();update()}
+function resetTasks(){data.tasks={};persist();update()}
+update();
+</script></body></html>

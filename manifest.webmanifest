@@ -1,0 +1,9 @@
+{
+  "name": "InstaGrow 10K – Naked Edition",
+  "short_name": "InstaGrow",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#101116",
+  "theme_color": "#101116",
+  "lang": "de"
+}
